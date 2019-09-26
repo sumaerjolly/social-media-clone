@@ -5,9 +5,13 @@ A simple app that is similar to facebook created using Rails.
 ### prerequisite
 
 Git.
+
 Code editor.
+
 Code linter.
+
 Rails.
+
 Browser.
 
 
