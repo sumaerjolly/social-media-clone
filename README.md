@@ -18,7 +18,7 @@ Browser.
 ### How to run the program
 Open the terminal.
 
-Enter git clone ``` https://github.com/othman-19/social_media. ```
+Enter git clone ``` https://github.com/sumaerjolly/social-media-clone.git ```
 
 Navigate to the cloned repository.
 
