@@ -2,7 +2,7 @@
 Project: Social Media
 A simple app that is similar to facebook created using Rails.
 
-###prerequisite
+### prerequisite
 
 Git.
 Code editor.
@@ -11,20 +11,20 @@ Rails.
 Browser.
 
 
-###How to run the program
+### How to run the program
 Open the terminal.
 
-Enter git clone ''' https://github.com/othman-19/social_media. '''
+Enter git clone ``` https://github.com/othman-19/social_media. ```
 
 Navigate to the cloned repository.
 
 In the terminal cd into social_media.
 
-Install bundle by typing ''' bundle install ''' and update it by typing bundle update in the terminal.
+Install bundle by typing ``` bundle install ``` and update it by typing ```bundle update``` in the terminal.
 
-Run the rails server by typing '''rails server''' in the terminal.
+Run the rails server by typing ```rails server``` in the terminal.
 
-Open in browser with '''localhost:3000'''
+Open in browser with ```localhost:3000```
 
 ### Contributors
 
