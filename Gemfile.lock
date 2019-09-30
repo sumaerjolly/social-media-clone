@@ -298,7 +298,7 @@ DEPENDENCIES
   font-awesome-rails
   hirb (~> 0.7.3)
   jbuilder (~> 2.7)
-  jquery-rails
+  jquery-rails (~> 4.3, >= 4.3.5)
   listen (>= 3.0.5, < 3.2)
   omniauth-facebook (~> 5.0)
   pg (>= 0.18, < 2.0)
@@ -320,4 +320,4 @@ RUBY VERSION
    ruby 2.6.0p0
 
 BUNDLED WITH
-   1.17.2
+   2.0.2
