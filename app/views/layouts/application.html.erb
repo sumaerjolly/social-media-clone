@@ -20,18 +20,18 @@
     <![endif]-->
   </head>
   <body>
-
+    <%= render 'layouts/navbar' %>
 
     <div class="container">
       <div class="row">
         <div class="col-lg-9">
-          <%= bootstrap_flash %>
+          <%= render 'layouts/messages' %>
           <%= yield %>
         </div>
       </div><!--/row-->
 
       <footer>
-        <p>&copy; Company 2019</p>
+        <p>&copy; SocialApp 2019</p>
       </footer>
 
     </div> <!-- /container -->

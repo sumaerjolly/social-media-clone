@@ -9,7 +9,7 @@ gem 'rails', '~> 6.0.0'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'devise'
 gem 'bootstrap', '~> 4.3', '>= 4.3.1'
-
+gem 'mini_racer', '~> 0.2.6'
 gem 'devise-bootstrap-views'
 gem 'devise-i18n'
 gem 'font-awesome-rails'
