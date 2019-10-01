@@ -1,0 +1,16 @@
+<%= form_for @post do |f| %>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %><br>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %><br>
+    <%= f.submit %>
+<% end %>
+
+<h1> All Posts </h1>
+
+<% @posts.each do |post| %>
+    <ul>
+       <li> <%= post.title %><br></li>
+        <li><%= post.body%></li>
+    </ul>
+<% end %>
