@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
     def index
         @post = Post.new
-        @posts = Post.all
+        @posts = current_user.posts
     end
 
     def new
@@ -25,21 +25,35 @@ class PostsController < ApplicationController
     end
 
     def destroy
-        @post.destroy 
-        flash[:danger] = "Post was successfully deleted"
-        redirect_to authenticated_root_path
+        unless @post.user == current_user
+            flash[:alert] = "You can only edit your own post"
+            redirect_to authenticated_root_path
+        else 
+            @post.destroy 
+            flash[:danger] = "Post was successfully deleted"
+            redirect_to authenticated_root_path
+        end
     end
 
     def edit
+        unless @post.user == current_user
+            flash[:alert] = "You can only edit your own post"
+            redirect_to authenticated_root_path
+        end
     end 
 
     def update
-        if @post.update(post_params)
-            flash[:success] = "Your post was susccessfully updated"
+        unless @post.user == current_user
+            flash[:alert] = "You can only edit your own post"
             redirect_to authenticated_root_path
         else 
-            render 'edit'
-        end 
+            if @post.update(post_params)
+                flash[:success] = "Your post was susccessfully updated"
+                redirect_to authenticated_root_path
+            else 
+                render 'edit'
+            end
+        end
     end
 
     private
