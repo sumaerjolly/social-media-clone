@@ -20,21 +20,26 @@
     <![endif]-->
   </head>
   <body>
+  .
     <%= render 'layouts/navbar' %>
-
+    <div class="row">
+      <div class="col-lg-9">
+         <%= render 'layouts/messages' %>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
     <div class="container">
-      <div class="row">
-        <div class="col-lg-9">
-          <%= render 'layouts/messages' %>
-          <%= yield %>
-        </div>
-      </div><!--/row-->
-
       <footer>
         <p>&copy; SocialApp 2019</p>
       </footer>
+    </div>
+   
 
-    </div> <!-- /container -->
+    
 
   </body>
 </html>
+
+
