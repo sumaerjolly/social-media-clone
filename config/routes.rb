@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/show'
   devise_for :users, :controllers => { :registrations => "user/registrations" }
   as :user do
     authenticated :user do
