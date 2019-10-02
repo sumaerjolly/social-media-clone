@@ -1,8 +1,10 @@
-<nav class="navbar navbar-expand-md navbar-dark" style="background-color: #3b59b6">
+<nav class="navbar navbar-expand-md navbar-dark" style= "background-color: #3b59b6">
     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Left</a>
+                <% if user_signed_in? %>
+                    <%= link_to "Home",  authenticated_root_path, class: "nav-link" %>
+                <% end %>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="//codeply.com">Codeply</a>
