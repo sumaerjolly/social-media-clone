@@ -1,28 +1,85 @@
+<br>
 
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 img">
-    <%= gravatar_for @user, size: 150 %>
-      <!--<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvzOpl3-kqfNbPcA_u_qEZcSuvu5Je4Ce_FkTMMjxhB-J1wWin-Q"  alt="" class="img-rounded">-->
+<div class="container post-card">    
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6 pb-5">
+            <div class="card border rounded">
+                <div class="card-header p-0">
+                    <div class="custom-bg text-white text-center py-2">
+                        <h5>New post</h5>                         
+                    </div>
+                </div>
+                <div class="card-body p-3">
+                    <%= form_for(@post, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+                        <% if @post.errors.any? %>
+                            <div class="panel panel-danger col-md-offset-1">
+                                <div class="panel-heading"> 
+                                    <h2 class="panel-title"><%= pluralize(@post.errors.count, "error") %> prohibited this article from being saved: </h2>
+                                    <div class="panel-body"> 
+                                        <ul>
+                                            <% @post.errors.full_messages.each do |msg| %> 
+                                                <li>
+                                                    <%= msg %> 
+                                                </li>
+                                            <% end %> 
+                                        </ul>
+                                    </div> 
+                                </div>
+                            </div> 
+                        <% end %>
+                        <div class="form-group">
+                            <div class="input-group mb-2">
+                                <%= f.text_field :title, class: 'form-control', placeholder: 'Title of post', autofocus: true %> 
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group mb-2">
+                                <%= f.text_area :body, rows: 2, class: 'form-control', placeholder: 'Body of article' %>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <%= f.submit class: 'btn custom-bg text-white btn-block rounded-2 py-2' %> 
+                    <% end %>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-6 details">
-      <blockquote>
-      <h1> <%= @user.full_name %></h>
-      <h2> <%= @user.gender %></h2>
-      <h2> <%= @user.date_of_birth.to_formatted_s(:long) %></h2>
-      <h2> <%= @user.date_of_birth.strftime("%F") %></h2>
-     
-     
-      <h2> <%= @user.email %></h2>
-      
-      <small><cite title="Source Title">Chicago, United States of America  <i class="icon-map-marker"></i></cite></small>
-      </blockquote>
-      <p>
-        fionagallager@shameless.com <br>
-        www.bootsnipp.com <br>
-        June 18, 1990
-      </p>
-    </div>
-  </div>
 </div>
+
+<!-- other card -->
+ <div class="row justify-content-center">
+    <h1> Your posts</h1>
+ </div><br>
+
+
+
+
+
+<% @posts.each do |post| %>
+    <div class="container post-card">    
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6 pb-5">
+                <div class="card border rounded-2">
+            
+                    <div class="card-header p-0">
+                        <div class="custom-bg text-white text-center py-2">
+                            <h5> <%= post.title %></h5>                         
+                        </div>
+                    </div>
+                    <div class="card-body p-3">
+                        <div class="form-group">
+                            <div class="input-group mb-2">
+                            <p style="font-size: 18px"><%= post.body%></p>    
+                            </div>
+                        </div>
+                        <%= link_to "Edit", edit_post_path(post), class: "btn btn-primary" %>
+                        <%= link_to "Delete", post_path(post), method: :delete, data: { confirm: "Are you sure you want to delete the article ?"}, class: "btn btn-danger" %>
+                    </div>
+                  
+                    
+                </div>
+            
+            </div>
+        </div>
+    </div>
+<% end %>
