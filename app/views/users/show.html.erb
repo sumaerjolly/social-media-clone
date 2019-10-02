@@ -1,9 +1,28 @@
-<h1 align="center">Welcome to <%= @user.full_name %>'s page</h1>
 
-<div class="row">
 
-<div class="col-md-4 col-md-offset-4 center">
-
-<%= gravatar_for @user, size: 150 %>
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 img">
+    <%= gravatar_for @user, size: 150 %>
+      <!--<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvzOpl3-kqfNbPcA_u_qEZcSuvu5Je4Ce_FkTMMjxhB-J1wWin-Q"  alt="" class="img-rounded">-->
+    </div>
+    <div class="col-md-6 details">
+      <blockquote>
+      <h1> <%= @user.full_name %></h>
+      <h2> <%= @user.gender %></h2>
+      <h2> <%= @user.date_of_birth.to_formatted_s(:long) %></h2>
+      <h2> <%= @user.date_of_birth.strftime("%F") %></h2>
+     
+     
+      <h2> <%= @user.email %></h2>
+      
+      <small><cite title="Source Title">Chicago, United States of America  <i class="icon-map-marker"></i></cite></small>
+      </blockquote>
+      <p>
+        fionagallager@shameless.com <br>
+        www.bootsnipp.com <br>
+        June 18, 1990
+      </p>
+    </div>
+  </div>
 </div>
