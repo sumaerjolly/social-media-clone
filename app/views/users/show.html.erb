@@ -1,8 +1,24 @@
 <br>
+<div class="container">
+<div class="row">
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+            <%= gravatar_for @user, size: 150 %>
+        
+            <div class="card-body">
+                <h3 class="card-title"> <%= @user.full_name %></h3>
+                <h5> <%= @user.email %> </h5>
+                <h5> <%= @user.gender %> </h5>
+                <h5> <%=  @user.date_of_birth.to_formatted_s(:long_ordinal) %> </h5>
 
-<div class="container post-card">    
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-8 col-lg-6 pb-5">
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-4">
+    <div class="container post-card">    
             <div class="card border rounded">
                 <div class="card-header p-0">
                     <div class="custom-bg text-white text-center py-2">
@@ -43,8 +59,6 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
 <!-- other card -->
  <div class="row justify-content-center">
@@ -57,8 +71,6 @@
 
 <% @posts.each do |post| %>
     <div class="container post-card">    
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-8 col-lg-6 pb-5">
                 <div class="card border rounded-2">
             
                     <div class="card-header p-0">
@@ -80,6 +92,11 @@
                 </div>
             
             </div>
-        </div>
-    </div>
 <% end %>
+
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
+</div>
+
