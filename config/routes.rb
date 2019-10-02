@@ -8,6 +8,6 @@ Rails.application.routes.draw do
       root 'welcome#index', as: :unauthenticated_root
     end
   end
-  resources :users, only: [:show]
+  resources :users, only: [:show,:index]
   resources :posts
 end

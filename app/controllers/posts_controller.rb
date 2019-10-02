@@ -28,7 +28,7 @@ class PostsController < ApplicationController
 
     def destroy
         unless @post.user == current_user
-            flash[:alert] = "You can only edit your own post"
+            flash[:alert] = "You can only delete your own post"
             redirect_to authenticated_root_path
         else 
             @post.destroy 

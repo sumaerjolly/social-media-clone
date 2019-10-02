@@ -11,7 +11,9 @@
                 <h5> <%= @user.gender %> </h5>
                 <h5> <%=  @user.date_of_birth.to_formatted_s(:long_ordinal) %> </h5>
 
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <% if @user === current_user %>
+                    <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary" %>
+                <% end %>
             </div>
         </div>
     </div>
@@ -62,7 +64,7 @@
 
 <!-- other card -->
  <div class="row justify-content-center">
-    <h1> Your posts</h1>
+    <h3><%= @user.full_name %> posts</h3>
  </div><br>
 
 
@@ -84,8 +86,10 @@
                             <p style="font-size: 18px"><%= post.body%></p>    
                             </div>
                         </div>
-                        <%= link_to "Edit", edit_post_path(post), class: "btn btn-primary" %>
-                        <%= link_to "Delete", post_path(post), method: :delete, data: { confirm: "Are you sure you want to delete the article ?"}, class: "btn btn-danger" %>
+                        <% if post.user === current_user%>
+                          <%= link_to "Edit", edit_post_path(post), class: "btn btn-primary" %>
+                          <%= link_to "Delete", post_path(post), method: :delete, data: { confirm: "Are you sure you want to delete the article ?"}, class: "btn btn-danger" %>
+                        <% end%>
                     </div>
                   
                     
