@@ -23,4 +23,11 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to new_user_session_path
   end
 
+  test 'should not let post be created user not logged in' do
+    assert_no_difference 'Post.count' do
+      post posts_path, params: { post: { title: 'Testing', body: 'Testing body', user: @user } }
+    end
+    assert_redirected_to new_user_session_path
+  end
+
 end
