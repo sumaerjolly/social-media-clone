@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
@@ -6,19 +8,19 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     @post = Post.create(title: 'test-post', body: 'this is the body of the test title', user: @user)
   end
 
-  test 'should get posts index' do 
+  test 'should get posts index' do
     sign_in(@user)
     get posts_path
     assert_response :success
   end
 
-  test 'should get edit' do 
+  test 'should get edit' do
     sign_in(@user)
     get edit_post_path(@post)
     assert_response :success
   end
 
-  test 'should redirect for non signed in user' do 
+  test 'should redirect for non signed in user' do
     get posts_path
     assert_redirected_to new_user_session_path
   end
@@ -29,5 +31,4 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to new_user_session_path
   end
-
 end

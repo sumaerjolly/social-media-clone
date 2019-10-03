@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  enum gender: [ :female, :male, :custom ]
+  enum gender: %i[female male custom]
   has_many :posts, dependent: :destroy
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -11,7 +13,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   def full_name
-    return "#{first_name} #{last_name}".strip if (first_name || last_name)
-    "Annonymous"
+    return "#{first_name} #{last_name}".strip if first_name || last_name
+
+    'Annonymous'
   end
 end
