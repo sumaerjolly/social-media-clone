@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   def show
-      @user = User.find(params[:id])
-      @post = Post.new
-      @posts = @user.posts
+    @user = User.find(params[:id])
+    @post = Post.new
+    @posts = @user.posts
   end
 
   def index
