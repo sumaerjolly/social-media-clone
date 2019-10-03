@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class PostsTest < ActionDispatch::IntegrationTest
+class DeletePostsTest < ActionDispatch::IntegrationTest
   
   def setup
     @user = User.create(first_name: 'Raja', last_name: 'Doe', email: 'testingexample@example.com', date_of_birth: '2001-11-5', gender: 1, password: 'password')
