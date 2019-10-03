@@ -13,9 +13,10 @@ class PostsTest < ActionDispatch::IntegrationTest
     sign_in(@user)
     get posts_path
     assert_template 'posts/index'
-    assert_difference('Post.count', -1) do
-        delete :destroy, :id => @post.id
+    assert_difference 'Post.count', -1 do
+      delete post_path(@post)
     end
+
   end  
 
 
