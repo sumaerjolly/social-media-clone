@@ -12,10 +12,8 @@ class UpdateUsersTest < ActionDispatch::IntegrationTest
     sign_in(@user)
     get  edit_user_registration_path(@user)
     assert_template 'devise/registrations/edit'
-    patch user_registration_url, params: {user: {last_name: "updated"}}
+    patch user_registration_url, params: {user: {last_name: "updated", current_password: "password"}}
     @user.reload
     assert_equal "updated", @user.last_name
   end
-
-
 end
