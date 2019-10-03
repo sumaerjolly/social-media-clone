@@ -20,7 +20,7 @@ class CreatePostsTest < ActionDispatch::IntegrationTest
     assert_match "Testing", response.body
   end
   
-  test "invalid category submission results in failure" do 
+  test "invalid post submission results in failure" do 
     sign_in(@user)
     get posts_path
     assert_template 'posts/index'
