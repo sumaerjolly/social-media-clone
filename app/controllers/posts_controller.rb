@@ -39,10 +39,10 @@ class PostsController < ApplicationController
   end
 
   def edit
-    unless @post.user == current_user
-      flash[:alert] = 'You can only edit your own post'
-      redirect_to authenticated_root_path
-    end
+    return if @post.user == current_user
+
+    flash[:alert] = 'You can only edit your own post'
+    redirect_to authenticated_root_path
   end
 
   def update
