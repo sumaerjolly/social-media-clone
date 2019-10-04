@@ -18,12 +18,11 @@ class PostsController < ApplicationController
     @post.user = current_user
     if @post.save
       flash[:success] = 'Your post was susccessfully created'
-
+      redirect_to authenticated_root_path
     else
       flash.now[:alert] = 'Your post could not be created'
       render 'index'
     end
-    redirect_to authenticated_root_path
   end
 
   def show; end
