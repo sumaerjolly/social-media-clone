@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       root 'posts#index', as: :authenticated_root
     end
     unauthenticated do
-      root 'welcome#index', as: :unauthenticated_root
+      root 'posts#index', as: :unauthenticated_root
     end
   end
   resources :users, only: [:show,:index]
