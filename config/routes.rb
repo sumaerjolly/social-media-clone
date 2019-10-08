@@ -1,3 +1,13 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  devise_for :users, :controllers => { :registrations => "user/registrations" }
+  as :user do
+    authenticated :user do
+      root 'posts#index', as: :authenticated_root
+    end
+    unauthenticated do
+      root 'posts#index', as: :unauthenticated_root
+    end
+  end
+  resources :users, only: [:show,:index]
+  resources :posts
 end
