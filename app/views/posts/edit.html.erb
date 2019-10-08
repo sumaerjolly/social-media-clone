@@ -1,1 +1,70 @@
-<%= render 'form' %>
+<div class="container-fluid gedf-wrapper">
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6 gedf-main">
+
+            <!--- \\\\\\\Post-->
+            <div class="card gedf-card">
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">Edit your post</a>
+                        </li>
+                    </ul>
+                </div>
+                    <%= form_for(@post, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+                    <div class="card-body">
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+                        
+                                <% if @post.errors.any? %>
+                                    <div class="panel panel-danger col-md-offset-1">
+                                        <div class="panel-heading"> 
+                                            <h2 class="panel-title"><%= pluralize(@post.errors.count, "error") %> prohibited this article from being saved: </h2>
+                                            <div class="panel-body"> 
+                                                <ul>
+                                                    <% @post.errors.full_messages.each do |msg| %> 
+                                                        <li>
+                                                            <%= msg %> 
+                                                        </li>
+                                                    <% end %> 
+                                                </ul>
+                                            </div> 
+                                        </div>
+                                    </div> 
+                                <% end %>
+                                <div class="form-group">
+                                    <%= f.text_field :title, class: 'form-control', id: "message", rows: "1", placeholder: 'Title of post' %> 
+                                </div>
+                                <div class="form-group">
+                                    <%= f.text_area :body, rows: 2, class: 'form-control', id: "message", placeholder: 'Body', rows: "3"  %>
+                                </div>
+
+                            </div>
+                            <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
+                                <div class="form-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="customFile">
+                                        <label class="custom-file-label" for="customFile">Upload image</label>
+                                    </div>
+                                </div>
+                                <div class="py-4"></div>
+                            </div>
+                        </div>
+                        <div class="btn-toolbar justify-content-between">
+                            <div class="btn-group">
+                                    <%= f.submit class: "btn btn-primary"  %> 
+                            </div>
+                            <div class="btn-group">
+                                <button id="btnGroupDrop1" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    <i class="fa fa-globe"></i>
+                                </button>
+                               
+                    </div>
+            </div>
+        </div>
+        <% end %>
+
+</div>
