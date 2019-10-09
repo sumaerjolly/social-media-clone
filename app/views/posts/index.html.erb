@@ -94,37 +94,35 @@
                         </div>
                         <div class="card-footer">
                             <a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>
-                            <a href="#" class="card-link"><i class="fa fa-comment"></i> Comment</a>
+                            <a href="#" class="card-link"><i class="fa fa-comment"></i><%= post.comments.count %> </a>
                             <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a>
                         </div>
 
                         <div class="card-footer">
-                            
-
-
-                        <div class='form-group'>
-                        
-                        <div class="row">                              
+                            <% if post.comments.any? %>
                                 <% post.comments.each do |comment| %>
-                            <div class="col-md-3">
-                                <%= gravatar_for(comment.user, size: 30)%><br>
-                                <%= comment.user.full_name %>
-                            </div>
-                            <div class='col-md-9'>
-                            <%= comment.body %>
-                            <hr>
-                            </div>
-                           
-                            <% end %>      
-                        </div>        
-                        
-                                               
-                        </div>
-                       
-                    
-                            
-                            
-                                <hr>
+                                    <div class="post-footer-comment-wrapper">
+                                        <div class="comment-form">
+                                        </div>
+                                        <div class="comment">
+                                                <div class="media">
+                                                <div class="media-left" id= "padding-needed">
+                                                   <%= link_to gravatar_for(comment.user, size: 25), "#" %>
+                                                </div>
+                                                <div class="media-body">
+                                                    <h5 class="media-heading"> <%=link_to comment.user.full_name, "#" %> <small><div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i> <%= time_ago_in_words(comment.created_at) %></div> </small></h5>   
+                                                    <p id = "comment-body"><%= comment.body %><br>
+                                                    <% if comment.user == current_user%>
+                                                        <small id="minute"><%= link_to "Edit", "#"%></small>
+                                                        <small><%= link_to "Delete", "#"%></small>
+                                                    <% end %>
+                                                    
+                                                </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                <% end %>
+                            <% end %>
                             <%= form_for [post, @comment], :html => {class: "form-horizontal", role: "form"} do |f| %>
                                 <div class='form-group'>
                                     <div class="row">
