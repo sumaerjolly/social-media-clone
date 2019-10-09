@@ -100,15 +100,31 @@
 
                         <div class="card-footer">
                             
-                            <div class="row">
+
+
+                        <div class='form-group'>
+                        
+                        <div class="row">                              
                                 <% post.comments.each do |comment| %>
-                                    <%= comment.body %>
-                                    <%= comment.user.full_name %>
-                                    <%= gravatar_for(comment.user, size: 30)%>
-                                    <%= time_ago_in_words(comment.created_at)%>
-                                    <%=  link_to "Delete",  post_comment_path(post,comment), method: :delete , data: { confirm: "Are you sure you want to delete this comment ?"}%>
-                                <% end %>
+                            <div class="col-md-3">
+                                <%= gravatar_for(comment.user, size: 30)%><br>
+                                <%= comment.user.full_name %>
                             </div>
+                            <div class='col-md-9'>
+                            <%= comment.body %>
+                            <hr>
+                            </div>
+                           
+                            <% end %>      
+                        </div>        
+                        
+                                               
+                        </div>
+                       
+                    
+                            
+                            
+                                <hr>
                             <%= form_for [post, @comment], :html => {class: "form-horizontal", role: "form"} do |f| %>
                                 <div class='form-group'>
                                     <div class="row">
