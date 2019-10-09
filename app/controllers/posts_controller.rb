@@ -6,6 +6,8 @@ class PostsController < ApplicationController
   def index
     @post = Post.new
     @posts = current_user.posts
+    @comment = @post.comments.build
+    @comments = @post.comments
   end
 
   def new
