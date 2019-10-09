@@ -16,14 +16,12 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @posts = current_user.posts
     @post.user = current_user
     if @post.save
       flash[:success] = 'Your post was susccessfully created'
       redirect_to authenticated_root_path
     else
-      flash.now[:alert] = 'Your post could not be created'
-      render 'index'
+      redirect_to authenticated_root_path, :flash => { :error => @post.errors.full_messages.join(', ') }
     end
   end
 

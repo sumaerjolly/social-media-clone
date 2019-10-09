@@ -11,10 +11,10 @@ class CommentsController < ApplicationController
 
             if @comment.save
                 flash[:notice] = "Comment has been created"
+                redirect_to authenticated_root_path
             else 
-                flash[:alert] = "Comment could not be created"
+                redirect_to authenticated_root_path, :flash => { :error => @comment.errors.full_messages.join(', ') }
             end
-            redirect_to authenticated_root_path
         end
     end
 
@@ -42,7 +42,7 @@ class CommentsController < ApplicationController
     end
     
     def destroy
-        @comment = @post.comments.find(params[:comment_id])
+        @comment = @post.comments.find(params[:id])
         if @comment.user == current_user
             @comment.destroy
             flash[:danger] = 'Comment was successfully deleted'
