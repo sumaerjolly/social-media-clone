@@ -23,7 +23,7 @@ class PostsController < ApplicationController
       flash[:success] = 'Your post was susccessfully created'
       redirect_to authenticated_root_path
     else
-      redirect_to authenticated_root_path, :flash => { :error => @post.errors.full_messages.join(', ') }
+      redirect_to authenticated_root_path, flash: { error: @post.errors.full_messages.join(', ') }
     end
   end
 
