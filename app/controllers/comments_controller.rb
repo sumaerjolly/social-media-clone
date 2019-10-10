@@ -33,6 +33,7 @@ class CommentsController < ApplicationController
               flash[:success] = 'Your comment was susccessfully updated'
               redirect_to authenticated_root_path
             else
+              flash.now[:alert] = "Your comment could not be updated"
               render 'edit'
             end
         else
