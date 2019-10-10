@@ -114,7 +114,8 @@
                                                     <p id = "comment-body"><%= comment.body %><br>
                                                     <% if comment.user == current_user%>
                                                         <small id="minute"><%= link_to "Edit", "#"%></small>
-                                                        <small><%= link_to "Delete", "#"%></small>
+                                                        <small><%=  link_to "Delete",  post_comment_path(post,comment), method: :delete , data: { confirm: "Are you sure you want to delete this comment ?"}%>
+                                                        </small>
                                                     <% end %>
                                                     
                                                 </div>
