@@ -22,10 +22,9 @@ class CommentsController < ApplicationController
 
   def edit
     @comment = @post.comments.find(params[:id])
-    if @comment.user != current_user
-      flash[:alert] = 'You can only edit your own comment'
-      redirect_to authenticated_root_path
-    end
+    return unless @comment.user != current_user
+    flash[:alert] = 'You can only edit your own comment'
+    redirect_to authenticated_root_path
   end
 
   def update
