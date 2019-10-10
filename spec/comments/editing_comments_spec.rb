@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.feature 'Editing a comment' do
   before do
     @user = User.create(first_name: 'Raja', last_name: 'Doe', email: 'testingexample@example.com',
-    date_of_birth: '2001-11-5', gender: 1, password: 'password')
+                        date_of_birth: '2001-11-5', gender: 1, password: 'password')
     login_as(@user)
     @post = Post.create(title: 'test title', body: 'testing title with rspec', user: @user)
     @comment = Comment.create(body: 'testing delete comment', user: @user, post: @post)
