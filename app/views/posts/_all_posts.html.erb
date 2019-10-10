@@ -118,7 +118,7 @@
                                                    <%= link_to gravatar_for(comment.user, size: 25), "#" %>
                                                 </div>
                                                 <div class="media-body">
-                                                    <h5 class="media-heading"> <%=link_to comment.user.full_name, "#" %> <small><div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i> <%= time_ago_in_words(comment.created_at) %></div> </small></h5>   
+                                                    <h5 class="media-heading"> <%=link_to comment.user.full_name, user_path(comment.user) %> <small><div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i> <%= time_ago_in_words(comment.created_at) %></div> </small></h5>   
                                                     <p id = "comment-body"><%= comment.body %><br>
                                                     <% if comment.user == current_user%>
                                                         <small id="minute"><%= link_to "Edit", edit_post_comment_path(post,comment) %></small>
