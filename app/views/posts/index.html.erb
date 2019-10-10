@@ -93,9 +93,21 @@
                             </p>
                         </div>
                         <div class="card-footer">
-                            <a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>
+                            <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
+                            <% if pre_like %>
+                                <%= link_to ('<i class="fa fa-heart" aria-hidden="true"></i>').html_safe, post_like_path(post, pre_like), method: :delete %>
+                            <% else %>
+                                <%= link_to ('<i class="fa fa-heart-o" aria-hidden="true"></i>').html_safe, post_likes_path(post), method: :post, class: "card-link" %>
+                            <% end %>
+                            <% if post.likes.any? %>
+                                <span class="blue-link"><%= post.likes.count %></span>
+                            <% else %>
+                                <%= link_to "Like", post_likes_path(post), method: :post, class: "blue-link" %>
+                            <% end %>
                             <a href="#" class="card-link"><i class="fa fa-comment"></i><%= post.comments.count %> </a>
-                            <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a>
+                            <% if pre_like %>
+                                 <%= link_to "Unlike", post_like_path(post, pre_like), method: :delete, class: "right" %>
+                            <% end %>
                         </div>
 
                         <div class="card-footer">

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show,:index]
   resources :posts do 
-    resources :comments
+    resources :comments, :likes
   end
+
 end

@@ -6,6 +6,8 @@ class User < ApplicationRecord
   enum gender: %i[female male custom]
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :gender, presence: true

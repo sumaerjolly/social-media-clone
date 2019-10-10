@@ -8,6 +8,8 @@ class PostsController < ApplicationController
     @posts = current_user.posts
     @comment = @post.comments.build
     @comments = @post.comments
+    @like = @post.likes.build
+    @likes = @post.likes
   end
 
   def new
