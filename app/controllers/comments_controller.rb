@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
     else
       flash[:alert] = 'Please sign in or sign up first'
       redirect_to new_user_session_path
-      end
+    end
   end
 
   def edit
