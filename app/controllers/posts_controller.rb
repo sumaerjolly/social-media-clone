@@ -17,8 +17,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.user = current_user
+    @post = current_user.posts.build(post_params)
     if @post.save
       flash[:success] = 'Your post was susccessfully created'
       redirect_to authenticated_root_path
@@ -63,7 +62,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :user_id)
+    params.require(:post).permit(:title, :body)
   end
 
   def set_post
