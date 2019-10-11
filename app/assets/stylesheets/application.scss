@@ -66,3 +66,75 @@
 body {
   background-color: #eeeeee;
 }
+
+.h7 {
+  font-size: 0.8rem;
+}
+
+.gedf-wrapper {
+  margin-top: 0.97rem;
+}
+
+@media (min-width: 992px) {
+  .gedf-main {
+      padding-left: 4rem;
+      padding-right: 4rem;
+  }
+  .gedf-card {
+      margin-bottom: 2.77rem;
+  }
+}
+
+/**Reset Bootstrap*/
+.dropdown-toggle::after {
+  content: none;
+  display: none;
+}
+
+/*-- Content Style --*/
+.post-footer-option li{
+  float:left;
+  margin-right:50px;
+  padding-bottom:15px;
+}
+
+.post-footer-option li a{
+  color:#AFB4BD;
+  font-weight:500;
+  font-size:1.3rem;
+}
+
+.photo-profile{
+  border:1px solid #DDD;    
+}
+
+.anchor-username h5{
+  font-weight:bold;    
+}
+
+.anchor-time{
+  color:#ADB2BB;
+  font-size:0.8rem;
+}
+
+.post-footer-comment-wrapper{
+  background-color:#F6F7F8;
+}
+
+#padding-needed{
+  padding-right: 20px;
+}
+#minute{
+  padding-right: 8px;
+}
+.blue-link{
+  color: rgb(22, 122, 246);
+  padding-right: 10px;
+}
+
+.liked{
+  color: darkblue;
+}
+.right{
+  padding-left: 400px;
+}

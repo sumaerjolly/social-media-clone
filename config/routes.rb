@@ -9,5 +9,8 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: [:show,:index]
-  resources :posts
+  resources :posts do 
+    resources :comments, :likes
+  end
+
 end

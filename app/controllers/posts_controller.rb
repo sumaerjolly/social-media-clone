@@ -6,6 +6,10 @@ class PostsController < ApplicationController
   def index
     @post = Post.new
     @posts = current_user.posts
+    @comment = @post.comments.build
+    @comments = @post.comments
+    @like = @post.likes.build
+    @likes = @post.likes
   end
 
   def new
@@ -13,15 +17,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    @posts = current_user.posts
-    @post.user = current_user
+    @post = current_user.posts.build(post_params)
     if @post.save
       flash[:success] = 'Your post was susccessfully created'
       redirect_to authenticated_root_path
     else
-      flash.now[:alert] = 'Your post could not be created'
-      render 'index'
+      redirect_to authenticated_root_path, flash: { error: @post.errors.full_messages.join(', ') }
     end
   end
 
@@ -61,7 +62,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :user_id)
+    params.require(:post).permit(:title, :body)
   end
 
   def set_post
