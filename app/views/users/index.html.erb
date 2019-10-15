@@ -8,6 +8,9 @@
             
         <% elsif current_user.sent_request?(user) %>
             <%= link_to "Cancel Request", "#" %>
+        <% elsif current_user.friend_requests.include?(user) %>
+            <%= link_to "Accept Request", "#"%>
+            <%= link_to "Reject Reqeust", "#"%>
         <% elsif current_user == user %>
             <%= link_to "View Profile", "#" %>
         <% else %>
