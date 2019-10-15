@@ -18,7 +18,6 @@ class FriendshipsController < ApplicationController
         else 
             @friend = @friend1
         end
-        # byebug
         flash[:danger] = 'You are no longer friends' if @friend.delete_all
         redirect_to users_path
     end
