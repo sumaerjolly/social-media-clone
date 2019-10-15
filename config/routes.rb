@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   end
 
   resources :friendships
+  delete "/delete_friend", to: "friendships#destroy" 
 
 end
