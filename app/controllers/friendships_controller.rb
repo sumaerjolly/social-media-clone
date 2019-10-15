@@ -13,10 +13,13 @@ class FriendshipsController < ApplicationController
     def destroy
         @friend1 = Friendship.where(user_id: params[:format], friend_id: current_user.id)
         @friend2 = Friendship.where(user_id: current_user.id, friend_id: params[:format])
-        @friend = @friend1 || @friend2
-        if @friend.delete_all
-            flash[:danger] = 'You are no longer friends'
+        if @friend1.empty?
+            @friend = @friend2
+        else 
+            @friend = @friend1
         end
+        # byebug
+        flash[:danger] = 'You are no longer friends' if @friend.delete_all
         redirect_to users_path
     end
 

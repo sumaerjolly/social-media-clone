@@ -56,5 +56,10 @@ class User < ApplicationRecord
   def sent_request?(user)
     pending_friends.include?(user)
   end
+
+  def reject_friend_request(user)
+    friendship = friendships.find { |friendship| friendship.friend_id == user.id }
+    friendship.destroy
+  end
   
 end
