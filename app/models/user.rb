@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   has_many :friendships
-  has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id"
+  has_many :inverse_friendships, class_name: 'Friendship', foreign_key: 'friend_id'
 
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -24,29 +24,30 @@ class User < ApplicationRecord
     'Annonymous'
   end
 
-  
   def friends
-    friends_array = friendships.map{|friendship| 
-    friendship.friend if friendship.confirmed}
+    friends_array = friendships.map do |friendship|
+      friendship.friend if friendship.confirmed
+    end
 
-    friends_array = friends_array + inverse_friendships.map{ |friendship|
-    friendship.user if friendship.confirmed }
+    friends_array += inverse_friendships.map do |friendship|
+      friendship.user if friendship.confirmed
+    end
 
     friends_array.compact
   end
 
   def pending_friends
-    friendships.map{|friendship| friendship.friend if !friendship.confirmed}.compact
+    friendships.map { |f| f.friend unless f.confirmed }.compact
   end
 
   def confirm_friend(user)
-    friendship = inverse_friendships.find{|friendship| friendship.user == user}
+    friendship = inverse_friendships.find { |f| f.user == user }
     friendship.confirmed = true
     friendship.save
   end
 
   def friend_requests
-    inverse_friendships.map{|friendship| friendship.user if !friendship.confirmed }.compact
+    inverse_friendships.map { |f| f.user unless f.confirmed }.compact
   end
 
   def friend?(user)
@@ -58,12 +59,12 @@ class User < ApplicationRecord
   end
 
   def cancel_friend_request(user)
-    friendship = friendships.find { |friendship| friendship.friend_id == user.id }
+    friendship = friendships.find { |f| f.friend_id == user.id }
     friendship.destroy
   end
 
   def reject_friend(user)
-    friendship = inverse_friendships.find{|friendship| friendship.user == user}
+    friendship = inverse_friendships.find { |f| f.user == user }
     friendship.destroy
   end
 end

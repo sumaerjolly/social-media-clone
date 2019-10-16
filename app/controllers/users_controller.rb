@@ -15,6 +15,5 @@ class UsersController < ApplicationController
   def index
     @users = User.where('id != ?', current_user.id)
     @friendship = current_user.friendships.build
-
   end
 end

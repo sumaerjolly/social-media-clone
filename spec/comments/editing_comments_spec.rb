@@ -16,10 +16,8 @@ RSpec.feature 'Editing a comment' do
     within '#minute' do
       click_link 'Edit'
     end
-
     fill_in 'comment[body]', with: 'Creating a Comment'
     click_button 'Update Comment'
-
     expect(page).to have_content('Your comment was susccessfully updated')
     expect(page.current_path).to eq(authenticated_root_path)
   end
@@ -29,10 +27,8 @@ RSpec.feature 'Editing a comment' do
     within '#minute' do
       click_link 'Edit'
     end
-
     fill_in 'comment[body]', with: ''
     click_button 'Update Comment'
-
     expect(page).to have_content("Body can't be blank")
     expect(page.current_path).to eq(post_comment_path(@post, @comment))
   end
