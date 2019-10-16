@@ -24,11 +24,18 @@
 
                         <% elsif @user != current_user && !current_user.friend?(@user) %>
                             <li class="list-group-item">
-                                        <%= link_to "Send Friend Request", "#", class: "btn btn-primary" %>
+                                        
+                                        <%= form_for(@friendship, url: friendships_path(@friendship)) do |f| %>
+              
+                                            <%= f.hidden_field :friend_id, value: @user.id  %>
+                                            <%= f.submit "Add As Friend", class: "btn btn-primary" %>
+                                        <% end %>
                                     </li>
                         <% elsif current_user.friend?(@user) %>
                             <li class="list-group-item">
-                                        <%= link_to "Unfriend", "#", class: "btn btn-primary" %>
+                            <%= link_to "Unfriend",  delete_friend_path(@user), method: :delete,  data: { confirm: "Are you sure you no longer want to be friends with this user ?"}, class: "btn btn-primary" %>
+            
+                                       
                             </li>
                         <% end %>
                     </ul>

@@ -15,5 +15,8 @@ Rails.application.routes.draw do
 
   resources :friendships
   delete "/delete_friend", to: "friendships#destroy" 
+  delete "/cancel_friend", to: "friendships#cancel"
+  delete "/reject_friend", to: "friendships#reject"  
+  patch "/confirm_friend", to: "friendships#confirm" 
 
 end

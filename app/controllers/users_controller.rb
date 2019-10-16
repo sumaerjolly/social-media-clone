@@ -9,10 +9,12 @@ class UsersController < ApplicationController
     @comments = @post.comments
     @like = @post.likes.build
     @likes = @post.likes
+    @friendship = current_user.friendships.build
   end
 
   def index
     @users = User.paginate(page: params[:page], per_page: 10)
     @friendship = current_user.friendships.build
+
   end
 end
