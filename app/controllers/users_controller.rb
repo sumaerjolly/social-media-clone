@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.paginate(page: params[:page], per_page: 10)
+    @users = User.where('id != ?', current_user.id)
     @friendship = current_user.friendships.build
 
   end

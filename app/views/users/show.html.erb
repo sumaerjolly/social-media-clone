@@ -33,7 +33,7 @@
                                     </li>
                         <% elsif current_user.friend?(@user) %>
                             <li class="list-group-item">
-                            <%= link_to "Unfriend",  delete_friend_path(@user), method: :delete,  data: { confirm: "Are you sure you no longer want to be friends with this user ?"}, class: "btn btn-primary" %>
+                            <%= link_to "Unfriend",  delete_friend_path(@user), method: :delete,  data: { confirm: "Are you sure you no longer want to be friends with this user ?"}, class: "btn btn-danger" %>
             
                                        
                             </li>
