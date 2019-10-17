@@ -5,7 +5,8 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.new
-    @posts = current_user.posts
+    ids = current_user.friends.pluck(:id) << current_user.id
+    @posts = Post.where(user_id: ids)
     @comment = @post.comments.build
     @comments = @post.comments
     @like = @post.likes.build

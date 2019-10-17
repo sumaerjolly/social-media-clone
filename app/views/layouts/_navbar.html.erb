@@ -9,15 +9,6 @@
             <li class="nav-item">
                 <%= link_to "All Users", users_path, class: "nav-link" %>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
         </ul>
     </div>
     <div class="mx-auto order-0">
@@ -30,6 +21,11 @@
         <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
                 <li class="nav-item"><%= link_to current_user.full_name, user_path(current_user), class: "nav-link" %></li>
+                <% if current_user.friend_requests.count > 0 %>
+                    <%= link_to ('<i class="fa fa-bell" style="color: yellow" aria-hidden="true"></i>').html_safe, users_path, class: "nav-link" %>
+                    <span id="notification"><%=  current_user.friend_requests.count %></span>
+                    
+                <% end%>    
             <% end %>
             <% if user_signed_in? %>  
               <li class="nav-item"><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
