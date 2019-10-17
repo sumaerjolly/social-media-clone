@@ -51,9 +51,10 @@
                         <div class="card-body">
                             <h5 class="card-title"> Friends        (<%= current_user.friends.count %>)</h5>
                             <% current_user.friends.each do | friend | %>
-
-                                <%= gravatar_for friend, size: 40 %>
-                                <h6 class="card-subtitle mb-2 text-muted"><%= link_to friend.full_name, user_path(friend) %></h6>
+                                <div class="space-it">
+                                    <%= gravatar_for friend, size: 40 %>
+                                    <span class="card-subtitle mb-2 text-muted left-shift"><%= link_to friend.full_name, user_path(friend) %></span>
+                                </div>
                     
                             <% end %>
                         </div>
@@ -64,10 +65,13 @@
                         <div class="card gedf-card">
                             <div class="card-body">
                                 <h5 class="card-title">Mutual Friends        (<%= current_user.mutual_friends(@user).count %>)</h5>
-                                <% current_user.mutual_friends(@user).each do | user | %>
 
-                                    <%= gravatar_for user, size: 40 %>
-                                    <span class="card-subtitle mb-2 text-muted"><%= link_to user.full_name, user_path(user) %></span>
+                                <% current_user.mutual_friends(@user).each do | user | %>
+                                    <div class= "space-it">
+
+                                        <%= gravatar_for user, size: 40 %>
+                                        <span class="card-subtitle mb-2 text-muted left-shift"><%= link_to user.full_name, user_path(user) %></span>
+                                    </div>
                         
                                 <% end %>
                             </div>

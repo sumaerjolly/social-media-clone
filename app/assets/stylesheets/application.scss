@@ -147,8 +147,8 @@ body {
   color: white;
   background-color: rgb(243, 74, 74);
   border-radius: 10px;
-  position: absolute;
-  right: 77px;
+  position: relative;
+  right: 13px;
   width: 13px;
   height: 13px;
   font-size: 10px;
@@ -158,3 +158,10 @@ body {
 font-weight: 600;
 }
 
+.space-it{
+  padding-bottom: 10px;
+}
+
+.left-shift{
+  margin-left: 5px;
+}
