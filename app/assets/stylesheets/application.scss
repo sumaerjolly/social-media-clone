@@ -1,6 +1,7 @@
 @import "bootstrap";
 @import "font-awesome";
 
+
 .no-padding{
     padding: 0 !important;
 }
@@ -141,5 +142,12 @@ body {
 
 .spacing{
   margin-right: 10px;
+}
+#notification{
+  color: white;
+  background-color: rgb(243, 74, 74);
+  border-radius: 20px;
+  position: absolute;
+  right: 97px;
 }
 
