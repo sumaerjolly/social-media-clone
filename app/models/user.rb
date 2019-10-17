@@ -8,8 +8,8 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
 
-  has_many :friendships
-  has_many :inverse_friendships, class_name: 'Friendship', foreign_key: 'friend_id'
+  has_many :friendships, dependent: :destroy
+  has_many :inverse_friendships, class_name: 'Friendship', foreign_key: 'friend_id', dependent: :destroy
 
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -66,5 +66,9 @@ class User < ApplicationRecord
   def reject_friend(user)
     friendship = inverse_friendships.find { |f| f.user == user }
     friendship.destroy
+  end
+
+  def mutual_friends(user)
+    self.friends & user.friends unless user.id == self.id 
   end
 end
