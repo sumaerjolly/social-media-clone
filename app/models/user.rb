@@ -69,6 +69,6 @@ class User < ApplicationRecord
   end
 
   def mutual_friends(user)
-    friends & user.friends unless user.id == id 
+    friends & user.friends unless user.id == id
   end
 end
