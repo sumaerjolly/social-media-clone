@@ -146,8 +146,15 @@ body {
 #notification{
   color: white;
   background-color: rgb(243, 74, 74);
-  border-radius: 20px;
+  border-radius: 10px;
   position: absolute;
-  right: 97px;
+  right: 77px;
+  width: 13px;
+  height: 13px;
+  font-size: 10px;
+  padding-left: 2px;
+  padding-bottom: 2px;
+  margin-bottom: 0;
+font-weight: 600;
 }
 

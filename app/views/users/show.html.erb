@@ -46,26 +46,41 @@
              <%= render 'posts/all_posts' %>   
             </div>
             <div class="col-md-3">
-                <div class="card gedf-card">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's content.</p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
-                </div>
-                <div class="card gedf-card">
+                <% if current_user == @user %>
+                    <div class="card gedf-card">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                                card's content.</p>
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
+                            <h5 class="card-title"> Friends        (<%= current_user.friends.count %>)</h5>
+                            <% current_user.friends.each do | friend | %>
+
+                                <%= gravatar_for friend, size: 40 %>
+                                <h6 class="card-subtitle mb-2 text-muted"><%= link_to friend.full_name, user_path(friend) %></h6>
+                    
+                            <% end %>
                         </div>
                     </div>
+                <% else %>
+            
+                    <% if !current_user.mutual_friends(@user).nil? %>
+                        <div class="card gedf-card">
+                            <div class="card-body">
+                                <h5 class="card-title">Mutual Friends        (<%= current_user.mutual_friends(@user).count %>)</h5>
+                                <% current_user.mutual_friends(@user).each do | user | %>
+
+                                    <%= gravatar_for user, size: 40 %>
+                                    <span class="card-subtitle mb-2 text-muted"><%= link_to user.full_name, user_path(user) %></span>
+                        
+                                <% end %>
+                            </div>
+                        </div>
+                    <% else %>
+                        <div class="card gedf-card">
+                            <div class="card-body">
+                                <h5 class="card-title">Mutual Friends        (<%= current_user.mutual_friends(@user).count %>)</h5>                                
+                                <h6 class="card-subtitle mb-2 text-muted">You have no mutual friends with this user</h6>
+                            </div>
+                        </div>
+                    <% end %>
+                <% end %>
             </div>
         </div>
     </div>
