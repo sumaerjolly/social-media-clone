@@ -70,6 +70,6 @@ class User < ApplicationRecord
   end
 
   def timeline_posts
-    confirmed_friends_posts + confirmed_inverse_friends_posts + posts
+    confirmed_friends_posts + conirmed_inverse_friends_posts + posts
   end
 end
