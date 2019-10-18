@@ -5,8 +5,7 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.new
-    ids = current_user.friends.pluck(:id) << current_user.id
-    @posts = Post.where(user_id: ids)
+    @posts = current_user.timeline_posts.sort_by(&:created_at).reverse
     @comment = @post.comments.build
     @comments = @post.comments
     @like = @post.likes.build
