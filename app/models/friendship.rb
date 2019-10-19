@@ -15,8 +15,8 @@ class Friendship < ApplicationRecord
   end
 
   def inverse_not_allowed
-    if (Friendship.where(user_id: friend_id, friend_id: user_id).exists?)
-      self.errors.add(:unique_friendship, 'Already friends!')
-    end
-  end 
+    return unless Friendship.where(user_id: friend_id, friend_id: user_id).exists?
+
+    errors.add(:unique_friendship, 'Already friends!')
+  end
 end
