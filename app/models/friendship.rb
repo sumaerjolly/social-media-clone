@@ -8,8 +8,15 @@ class Friendship < ApplicationRecord
   validates :friend, presence: true, uniqueness: { scope: :user }
 
   validate :not_self
+  validate :inverse_not_allowed
 
   def not_self
     errors.add(:friend, "can't be equal to user") if user == friend
   end
+
+  def inverse_not_allowed
+    if (Friendship.where(user_id: friend_id, friend_id: user_id).exists?)
+      self.errors.add(:unique_friendship, 'Already friends!')
+    end
+  end 
 end
