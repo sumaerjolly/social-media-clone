@@ -6,7 +6,7 @@ RSpec.feature 'Adding Friends' do
   before do
     @user1 = User.create(first_name: 'Raja', last_name: 'Doe', email: 'example@example.com',
                          date_of_birth: '2001-11-5', gender: 1, password: 'password')
-    @user2 = User.create(first_name: 'Jane', last_name: 'Doe', email: 'doe@example.com',
+    @user2 = User.create(first_name: 'Alex', last_name: 'Doe', email: 'doe@example.com',
                          date_of_birth: '2001-11-5', gender: 1, password: 'password')
     login_as(@user1)
   end
@@ -14,6 +14,7 @@ RSpec.feature 'Adding Friends' do
   scenario 'A user sends a friend request' do
     visit '/'
     click_link 'All Users'
+    click_link "Alex Doe"
 
     click_button 'Add As Friend'
 
