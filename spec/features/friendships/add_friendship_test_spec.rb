@@ -8,10 +8,6 @@ RSpec.feature 'Adding Friends' do
                          date_of_birth: '2001-11-5', gender: 1, password: 'password')
     @user2 = User.create(first_name: 'Jane', last_name: 'Doe', email: 'doe@example.com',
                          date_of_birth: '2001-11-5', gender: 1, password: 'password')
-    @user3 = User.find_by_email("testingexample@example.com")
-    @user4 = User.find_by_email("janedoe@example.com")
-    @user3.destroy
-    @user4.destroy
     login_as(@user1)
   end
 
