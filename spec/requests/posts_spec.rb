@@ -2,11 +2,11 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Articles', type: :request do
+RSpec.describe 'Posts', type: :request do
   before do
-    @john = User.create(first_name: 'John', last_name: 'Doe', email: 'testingexample@example.com',
+    @john = User.create(first_name: 'John', last_name: 'Doe', email: 'example@example.com',
                         date_of_birth: '2001-11-5', gender: 1, password: 'password')
-    @jane = User.create(first_name: 'Jane', last_name: 'Doe', email: 'jane@example.com',
+    @jane = User.create(first_name: 'Jane', last_name: 'Doe', email: 'doe@example.com',
                         date_of_birth: '2001-11-5', gender: 1, password: 'password')
     @post = Post.create(title: 'Test', body: 'Body Test', user: @john)
   end
