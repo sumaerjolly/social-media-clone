@@ -22,7 +22,8 @@ class FriendshipsController < ApplicationController
 
   def confirm
     @user = User.find_by(id: params[:format])
-    current_user.confirm_friend(@user)
+    friendship = Friendship.where(user: @user, friend: current_user)
+    friendship.update(confirmed: true)
     flash[:success] = 'You are now friends'
     redirect_to users_path
   end

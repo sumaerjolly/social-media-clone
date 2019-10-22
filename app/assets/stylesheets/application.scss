@@ -146,8 +146,22 @@ body {
 #notification{
   color: white;
   background-color: rgb(243, 74, 74);
-  border-radius: 20px;
-  position: absolute;
-  right: 97px;
+  border-radius: 10px;
+  position: relative;
+  right: 13px;
+  width: 13px;
+  height: 13px;
+  font-size: 10px;
+  padding-left: 2px;
+  padding-bottom: 2px;
+  margin-bottom: 0;
+font-weight: 600;
 }
 
+.space-it{
+  padding-bottom: 10px;
+}
+
+.left-shift{
+  margin-left: 5px;
+}

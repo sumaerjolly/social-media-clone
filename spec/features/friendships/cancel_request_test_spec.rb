@@ -4,9 +4,9 @@ require 'rails_helper'
 
 RSpec.feature 'Cancelling Friend request' do
   before do
-    @user1 = User.create(first_name: 'Raja', last_name: 'Doe', email: 'testingexample@example.com',
+    @user1 = User.create(first_name: 'Raja', last_name: 'Doe', email: 'example@example.com',
                          date_of_birth: '2001-11-5', gender: 1, password: 'password')
-    @user2 = User.create(first_name: 'Jane', last_name: 'Doe', email: 'janedoe@example.com',
+    @user2 = User.create(first_name: 'Jane', last_name: 'Doe', email: 'doe@example.com',
                          date_of_birth: '2001-11-5', gender: 1, password: 'password')
     login_as(@user1)
     @friendship = Friendship.create(user: @user1, friend: @user2)
