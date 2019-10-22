@@ -14,7 +14,7 @@ RSpec.feature 'Adding Friends' do
   scenario 'A user sends a friend request' do
     visit '/'
     click_link 'All Users'
-    click_link "Alex Doe"
+    click_link 'Alex Doe'
 
     click_button 'Add As Friend'
 
