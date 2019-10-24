@@ -2,27 +2,31 @@
 Project: Social Media
 A simple app that is similar to facebook created using Rails.
 
-### prerequisite
+### Pre Requisite 
+
+Browser.
 
 Git.
 
 Code editor.
 
-Code linter.
-
 Rails.
 
-Browser.
+
+### Live version
+
+The live version of the file can be found [here](https://microverse-social-media.herokuapp.com)
 
 
-### How to run the program
+
+### How to run the program locally
 Open the terminal.
 
 Enter git clone ``` https://github.com/sumaerjolly/social-media-clone.git ```
 
 Navigate to the cloned repository.
 
-In the terminal cd into social_media.
+In the terminal cd into social-media-clone.
 
 Install bundle by typing ``` bundle install ``` and update it by typing ```bundle update``` in the terminal.
 
