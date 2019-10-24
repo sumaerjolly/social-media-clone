@@ -1,10 +1,11 @@
 # In this project we worked on a social media clone 
+
 Project: Social Media
 A simple app that is similar to facebook created using Rails.
 
-### Pre Requisite 
 
-Browser.
+### Pre Requisite
+
 
 Git.
 
@@ -18,6 +19,8 @@ Rails.
 The live version of the file can be found [here](https://microverse-social-media.herokuapp.com)
 
 
+## Live version 
+The live version of the app can be found [here](https://microverse-social-media.herokuapp.com)
 
 ### How to run the program locally
 Open the terminal.
