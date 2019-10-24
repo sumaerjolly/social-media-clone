@@ -14,11 +14,6 @@ Code editor.
 Rails.
 
 
-### Live version
-
-The live version of the file can be found [here](https://microverse-social-media.herokuapp.com)
-
-
 ## Live version 
 The live version of the app can be found [here](https://microverse-social-media.herokuapp.com)
 
