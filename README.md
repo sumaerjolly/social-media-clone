@@ -3,7 +3,9 @@
 Project: Social Media
 A simple app that is similar to facebook created using Rails.
 
+
 ### Pre Requisite
+
 
 Git.
 
@@ -11,7 +13,11 @@ Code editor.
 
 Rails.
 
-Browser.
+
+### Live version
+
+The live version of the file can be found [here](https://microverse-social-media.herokuapp.com)
+
 
 ## Live version 
 The live version of the app can be found [here](https://microverse-social-media.herokuapp.com)
