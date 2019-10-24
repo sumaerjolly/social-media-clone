@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :registrations => "user/registrations" }
+  devise_for :users, :controllers => { :registrations => "user/registrations", :omniauth_callbacks => 'users/omniauth_callbacks' }
+
   as :user do
     authenticated :user do
       root 'posts#index', as: :authenticated_root
